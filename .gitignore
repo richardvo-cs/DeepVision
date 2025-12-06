@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+
+# PyTorch checkpoints and models (too large for GitHub)
+checkpoints/
+*.pth
+*.pt
+
+# Training logs and outputs
+logs/
+samples/
+D:/DeepVision_*
+
+# Dataset (too large for GitHub)
+train/
+test/
+GOPRO_Large/
+
+# Generated images
+*.png
+!README_images/*.png
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+.cache/
+*.log
+
