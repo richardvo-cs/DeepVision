@@ -2,6 +2,8 @@
 
 A PyTorch implementation of a conditional Generative Adversarial Network for single-image motion deblurring. This project implements a U-Net generator with PatchGAN discriminator, trained using a composite loss function combining adversarial, perceptual, and content losses.
 
+DATA: [https://drive.google.com/file/d/1y4wvPdOG3mojpFCHTqLgriexhbjoWVkK/view?usp=drive_link](https://seungjunnah.github.io/Datasets/gopro.html)](https://seungjunnah.github.io/Datasets/gopro.html)
+
 ## Architecture
 
 ### Generator (U-Net)
