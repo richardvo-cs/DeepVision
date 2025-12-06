@@ -1,10 +1,6 @@
-# DeepVision: Motion Deblurring with DeblurGAN
+# DeepVision: Motion Deblurring
 
 A PyTorch implementation of a conditional Generative Adversarial Network for single-image motion deblurring. This project implements a U-Net generator with PatchGAN discriminator, trained using a composite loss function combining adversarial, perceptual, and content losses.
-
-## Objective
-
-Develop a deep learning model that learns an effective mapping from the blurred domain to the sharp, visually plausible domain. This serves as a foundational proof-of-concept for systems that could enhance visual perception for individuals with eyesight impairments.
 
 ## Architecture
 
@@ -26,33 +22,6 @@ L_total = λ_adv × L_adversarial + λ_perc × L_perceptual + λ_content × L_co
 - **Adversarial Loss**: LSGAN for stable training
 - **Perceptual Loss**: VGG19 feature matching
 - **Content Loss**: L1 pixel-wise reconstruction
-
-## Project Structure
-
-```
-DeepVision/
-├── config.py              # Configuration settings
-├── train.py               # Training script
-├── test.py                # Testing and inference
-├── requirements.txt       # Dependencies
-├── models/
-│   ├── __init__.py
-│   ├── generator.py       # U-Net Generator
-│   ├── discriminator.py   # PatchGAN Discriminator
-│   └── losses.py          # Loss functions
-├── data/
-│   ├── __init__.py
-│   └── dataset.py         # GoPro dataset loader
-├── utils/
-│   ├── __init__.py
-│   ├── metrics.py         # PSNR, SSIM metrics
-│   └── visualization.py   # Visualization utilities
-├── checkpoints/           # Saved models
-├── logs/                  # TensorBoard logs
-├── samples/               # Generated samples
-├── train/                 # GoPro training data
-└── test/                  # GoPro test data
-```
 
 ## Quick Start
 
@@ -108,7 +77,7 @@ python test.py --checkpoint checkpoints/checkpoint_best.pth --mode single --inpu
 python test.py --checkpoint checkpoints/checkpoint_best.pth --mode directory --input ./blurred_images --output ./results
 ```
 
-## ⚙️ Configuration
+## Configuration
 
 Key hyperparameters in `config.py`:
 
@@ -123,22 +92,6 @@ Key hyperparameters in `config.py`:
 | `LAMBDA_CONTENT` | 10.0 | Content (L1) loss weight |
 | `IMG_HEIGHT` | 256 | Training image height |
 | `IMG_WIDTH` | 256 | Training image width |
-
-## 📊 Expected Results
-
-On the GoPro test dataset:
-- **PSNR**: ~28-30 dB
-- **SSIM**: ~0.85-0.92
-
-## 🔧 Model Variants
-
-The implementation includes several model variants:
-
-1. **UNetGenerator**: Full U-Net with 9 residual blocks (default)
-2. **UNetGeneratorLite**: Lighter variant with 6 residual blocks
-3. **PatchGANDiscriminator**: Standard 70×70 PatchGAN
-4. **MultiscaleDiscriminator**: Multi-scale PatchGAN
-5. **SpectralNormDiscriminator**: PatchGAN with spectral normalization
 
 ## 📖 References
 
